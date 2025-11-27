@@ -1,0 +1,41 @@
+@media (orientation: portrait) {
+    body {
+        background-color: #333; /* Dark background for the empty space */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    #main {
+        /* Force landscape aspect ratio on portrait screens */
+        width: 100vh; /* Width becomes height */
+        height: 100vw; /* Height becomes width */
+        transform: rotate(90deg);
+        transform-origin: center;
+        
+        /* Reset margins and positioning */
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        
+        /* Center the rotated element */
+        margin-left: -50vh; /* Half of width */
+        margin-top: -50vw; /* Half of height */
+        
+        /* Ensure it fits */
+        max-width: 100vh;
+        max-height: 100vw;
+        
+        /* Scale down if needed to fit screen */
+        /* We might need JS to calculate exact scale if aspect ratio doesn't match */
+    }
+}
+
+/* General mobile tweaks */
+@media (max-width: 768px) {
+    /* Adjust touch targets if needed */
+}
