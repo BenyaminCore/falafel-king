@@ -1,27 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="play.html">
-    <title>מלך הפלאפל</title>
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="mobile.css">
-    <script src="home.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>👑 מלך הפלאפל 2025</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="main">
-        <img src="pictures/בית/רקע.png" alt="">
-        <a href="play.html">
-            <img src="pictures/בית/שחק.png" alt="" id="play">
-        </a>
-        <img src="pictures/בית/הוראות.png" alt="" id="ins">
-        <img src="pictures/בית/דף הוראות.png" alt="" id="ins_page">
-        <img src="pictures/בית/x.png" alt="" id="x">
+    <div id="game-container">
+        <!-- Score Display -->
+        <div id="score-display">
+            <div class="score-label">ניקוד</div>
+            <div class="score-value">0</div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="hidden">
+            <div class="modal-content">
+                <h2>🤯 לקוח התפוצץ!</h2>
+                <p class="final-score">ניקוד סופי: <span id="final-score-value">0</span></p>
+                <button id="restart-button" class="btn-primary">🔄 שחק שוב</button>
+            </div>
+        </div>
+
+        <!-- Stand Area -->
+        <div id="stand-area">
+            <!-- Current Pita Being Prepared -->
+            <div id="current-pita" class="pita-empty">
+                <div class="pita-ingredients"></div>
+                <button id="serve-button" class="btn-serve hidden">הגש! 🎯</button>
+            </div>
+
+            <!-- Ingredient Bowls -->
+            <div class="ingredients-grid">
+                <div class="ingredient-bowl" data-ingredient="hummus">
+                    <img src="assets/hummus-bowl.png" alt="חומוס">
+                    <div class="ingredient-label">חומוס</div>
+                </div>
+                <div class="ingredient-bowl" data-ingredient="salad">
+                    <img src="assets/salad-bowl.png" alt="סלט">
+                    <div class="ingredient-label">סלט</div>
+                </div>
+                <div class="ingredient-bowl" data-ingredient="falafel">
+                    <img src="assets/falafel-bowl.png" alt="פלאפל">
+                    <div class="ingredient-label">פלאפל</div>
+                </div>
+                <div class="ingredient-bowl" data-ingredient="fries">
+                    <img src="assets/fries-bowl.png" alt="צ'יפס">
+                    <div class="ingredient-label">צ'יפס</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Queue -->
+        <div id="customer-queue">
+            <div class="customer-slot" id="customer-1">
+                <div class="customer-avatar">🧑</div>
+                <div class="order-display"></div>
+                <div class="patience-bar">
+                    <div class="patience-fill"></div>
+                </div>
+            </div>
+            <div class="customer-slot" id="customer-2">
+                <div class="customer-avatar">👨</div>
+                <div class="order-display"></div>
+                <div class="patience-bar">
+                    <div class="patience-fill"></div>
+                </div>
+            </div>
+            <div class="customer-slot" id="customer-3">
+                <div class="customer-avatar">👩</div>
+                <div class="order-display"></div>
+                <div class="patience-bar">
+                    <div class="patience-fill"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="game.js"></script>
 </body>
 
 </html>
